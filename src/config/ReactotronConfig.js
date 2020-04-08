@@ -4,7 +4,6 @@ import reactotronSaga from "reactotron-redux-saga";
 
 if (process.env.NODE_ENV === "development") {
     const tron = Reactotron.configure()
-        .useReactNative()
         .use(reactotronRedux())
         .use(reactotronSaga())
         .connect();
