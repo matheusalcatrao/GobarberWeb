@@ -20,6 +20,6 @@ export function signInSuccess(token, user) {
 
 export function signFalure() {
     return {
-        type: "@auth/SIGN_FALURE"
+        type: "@auth/SIGN_IN_FAILURE"
     };
 }
