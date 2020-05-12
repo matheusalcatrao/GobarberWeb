@@ -1,18 +1,21 @@
 import React from "react";
 import { Input, Form } from "@rocketseat/unform";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { Content } from "./styles";
+import { updateProfileRequest } from "~/store/modules/user/actions";
 
 export default function Profile() {
+    const dispatch = useDispatch();
     const profile = useSelector(state => state.user.profile);
 
     function handleSubmit(data) {
         console.log(data);
+        dispatch(updateProfileRequest(data));
     }
     return (
         <Content>
-            <Form initialData={profile} onClick={handleSubmit}>
+            <Form initialData={profile} onSubmit={handleSubmit}>
                 <Input type="text" name="name" placeholder="Digite seu nome" />
                 <Input
                     type="text"

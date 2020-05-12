@@ -17,24 +17,24 @@ export default function Notifications() {
     const [visible, setVisible] = useState(false);
     const [notifications, setNotifications] = useState([]);
 
-    useEffect(() => {
-        async function loadingNotification() {
-            const response = await api.get("notifications");
+    // useEffect(() => {
+    //     async function loadingNotification() {
+    //         const response = await api.get("notifications");
 
-            const data = response.data.map(notification => ({
-                ...notification,
-                timeDistance: formatDistance(
-                    parseISO(notification.createdAt),
-                    new Date(),
-                    { addSuffix: true, locale: pt }
-                )
-            }));
+    //         const data = response.data.map(notification => ({
+    //             ...notification,
+    //             timeDistance: formatDistance(
+    //                 parseISO(notification.createdAt),
+    //                 new Date(),
+    //                 { addSuffix: true, locale: pt }
+    //             )
+    //         }));
 
-            setNotifications(data);
-        }
+    //         setNotifications(data);
+    //     }
 
-        loadingNotification();
-    }, []);
+    //     loadingNotification();
+    // }, []);
 
     function handleChangeVisible() {
         setVisible(!visible);
